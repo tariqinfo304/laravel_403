@@ -61,3 +61,19 @@ Route::get("book/{id}/{name}",function($id,$name){
 //CNIC 35202-0340805-8
 //IP 127.232.232.001
 
+
+//Route::redirect('/go_to_other', 'std_val/23');
+
+
+/////////////////////////
+// Controllers
+//////////////////////////
+
+use App\Http\Controllers\HelloController;
+
+Route::get("hello/{name}",[HelloController::class,"hello"]);
+
+use App\Http\Controllers\TestController;
+
+Route::get("call",TestController::class);
+
