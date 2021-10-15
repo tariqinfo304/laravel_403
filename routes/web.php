@@ -77,3 +77,10 @@ use App\Http\Controllers\TestController;
 
 Route::get("call",TestController::class);
 
+//View Topic
+
+use App\Http\Controllers\ViewController;
+
+Route::get("view",[ViewController::class,"index"]);
+Route::get("template",[ViewController::class,"template"]);
+
