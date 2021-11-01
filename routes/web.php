@@ -84,3 +84,9 @@ use App\Http\Controllers\ViewController;
 Route::get("view",[ViewController::class,"index"]);
 Route::get("template",[ViewController::class,"template"]);
 
+
+
+use App\Http\Controllers\ORMController;
+Route::get("orm",[ORMController::class,"index"]);
+Route::get("orm_1",[ORMController::class,"index_1"]);
+
