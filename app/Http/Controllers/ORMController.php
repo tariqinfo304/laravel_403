@@ -4,10 +4,53 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BookModel;
+
 use App\Models\ProductModel;
+use App\Models\User;
+use App\Models\UserPhoneModel;
+use App\Models\ProductImagesModel;
+
 
 class ORMController extends Controller
 {
+    
+    function relation()
+    {
+        //one - one
+        //direct
+        
+        //$obj = User::find(1);
+        //dd($obj->phone_no);
+        
+        //one to one 
+        //indirect
+
+        //$obj = UserPhoneModel::find(1);
+        //dd($obj->user);
+
+
+        //One - many
+       // $obj = ProductModel::find(1);
+       // dd($obj->images);
+
+        //indirect
+       // $obj = ProductImagesModel::find(1);
+       // dd($obj->product);
+
+
+        //Many to Many
+        //$obj  = User::find(1);
+        //dd($obj->productReviews);
+        //indirect
+
+        //$obj = ProductModel::find(1);
+
+       // dd($obj->UserReviews);
+        /*foreach ($obj->UserReviews as $row) {
+            echo $row->pivot->product_id . "<br/>";
+        }*/
+    }
+
     function index()
     {
 
@@ -88,9 +131,7 @@ class ORMController extends Controller
             echo "not deleted";
         }*/
 
-
     }
-
 
     function index_1()
     {
