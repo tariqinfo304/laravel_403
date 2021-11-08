@@ -92,3 +92,16 @@ Route::get("orm_1",[ORMController::class,"index_1"]);
 
 Route::get("relation",[ORMController::class,"relation"]);
 
+
+
+//Template integrate in blade
+
+use App\Http\Controllers\ShopController;
+Route::get("shop",[ShopController::class,"index"]);
+Route::get("shop/cart",[ShopController::class,"cart"]);
+
+
+
+use App\Http\Controllers\ProductController;
+Route::get("shop/product",[ProductController::class,"index"]);
+
