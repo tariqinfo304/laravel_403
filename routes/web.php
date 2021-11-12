@@ -103,5 +103,5 @@ Route::get("shop/cart",[ShopController::class,"cart"]);
 
 
 use App\Http\Controllers\ProductController;
-Route::get("shop/product",[ProductController::class,"index"]);
+Route::resource("shop/product",ProductController::class);
 
