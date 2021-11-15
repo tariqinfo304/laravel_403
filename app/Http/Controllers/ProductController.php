@@ -39,20 +39,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        /*if($request->has("image"))
-        {
-            //getClientOriginalName
-            $ext = $request->image->extension();
-
-            $image_name = time(). "." . $ext;
-
-            $request->image->store($image_name);
-           // Storage::disk("local_public")->putFileAs($image_name,$request->image);
-        }*/
-
 
         //it will show you image file detail
-       // dd($request->image);
+        //dd($request->image);
+        
         //dd($request->all());
        // dd($request->input());
        // dd($request->name);
@@ -69,7 +59,19 @@ class ProductController extends Controller
 
         $obj  = new ProductModel();
 
-        //Storage::disk('s3')
+        if($request->hasFile('image')){
+
+            //$filenameWithExt = $request->image->getClientOriginalName();
+            //Get just filename
+            //$filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->image->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = time().'.'.$extension;
+            // Upload Image
+            $path = $request->image->storeAs("uploads",$fileNameToStore);
+            $obj->image = $path;
+        }
 
 
         $obj->name = $request->name;
@@ -89,7 +91,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = ProductModel::find($id);
+        return view("shop.product.create")
+                ->with("data",$data)
+                ->with("is_delete",1);
     }
 
     /**
@@ -113,7 +118,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "price" => "required"
+        ]);
+
+        $obj = ProductModel::find($id);
+
+        $obj->name = $request->name;
+        $obj->description = $request->description;
+        $obj->price = $request->price;
+        $obj->label = $request->label;
+        $obj->save();
+        return redirect("shop/product");
     }
 
     /**
@@ -124,6 +141,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obj = ProductModel::find($id);
+        $obj->delete();
+        return redirect("shop/product");
     }
 }

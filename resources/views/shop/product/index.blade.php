@@ -35,6 +35,7 @@
 							  <thead>
 							    <tr>
 							      <th scope="col">#</th>
+							      <th scope="col">Image</th>
 							      <th scope="col">Name</th>
 							      <th scope="col">Description</th>
 							      <th scope="col">Price</th>
@@ -47,14 +48,20 @@
 								      
 								    
 									    <tr>
-									      <th scope="row">{{ $row->id_value }}</th>
+									      <td scope="row">{{ $row->id_value }}</td>
+									      <td>
+									      	@if(!empty($row->image))
+									      		<img src="{{ Asset($row->image) }}" width="200px" />
+									      	@endif
+									      	
+									      </td>
 									      <td>{{ $row->name }}</td>
 									      <td>{{ $row->description}}</td>
 									      <td>{{ $row->price}}</td>
 									      <td>{{ $row->label}}</td>
 									      <td>
-									      	<a>
-									      	<i style="cursor:pointer;" class="fa fa-remove" aria-hidden="true"></i>
+									      	<a href="{{ URL('shop/product/'.$row->id_value)}}">
+									      		<i style="cursor:pointer;" class="fa fa-remove" aria-hidden="true"></i>
 									      </a>
 
 									      	&nbsp;

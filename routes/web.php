@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //home / base
 Route::get('/', function () { 
 
@@ -97,8 +98,9 @@ Route::get("relation",[ORMController::class,"relation"]);
 //Template integrate in blade
 
 use App\Http\Controllers\ShopController;
-Route::get("shop",[ShopController::class,"index"]);
-Route::get("shop/cart",[ShopController::class,"cart"]);
+Route::get("shop",[ShopController::class,"index"]);//->middleware("Test:admin");
+
+Route::get("shop/cart",[ShopController::class,"cart"]);//->middleware("test_group");
 
 
 
