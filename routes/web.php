@@ -105,5 +105,12 @@ Route::get("shop/cart",[ShopController::class,"cart"]);//->middleware("test_grou
 
 
 use App\Http\Controllers\ProductController;
-Route::resource("shop/product",ProductController::class);
+Route::resource("shop/product",ProductController::class)->middleware("MyAuth");
+
+
+use App\Http\Controllers\LoginController;
+
+Route::get("login",[LoginController::class,"login"]);
+Route::post("login",[LoginController::class,"check_login"]);
+Route::get("logout",[LoginController::class,"logout"]);
 

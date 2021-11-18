@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         //\App\Http\Middleware\TestMiddleware::class
+        //\App\Http\Middleware\AuthMiddleware::class
     ];
 
     /**
@@ -68,6 +69,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'Test' => \App\Http\Middleware\TestMiddleware::class
+        'Test' => \App\Http\Middleware\TestMiddleware::class,
+        "MyAuth" => \App\Http\Middleware\AuthMiddleware::class
     ];
 }
