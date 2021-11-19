@@ -114,3 +114,9 @@ Route::get("login",[LoginController::class,"login"]);
 Route::post("login",[LoginController::class,"check_login"]);
 Route::get("logout",[LoginController::class,"logout"]);
 
+
+
+Route::get("add_book",[ShopController::class,"add_book"]);
+Route::post("add_book",[ShopController::class,"save_book"]);
+
+

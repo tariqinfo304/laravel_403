@@ -15,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $list = ProductModel::all();
+       $list = ProductModel::paginate(15);
+    //$list = ProductModel::simplePaginate(15);
+         //dd($list);
 
         return view("shop.product.index")->with("list",$list);
     }

@@ -30,7 +30,7 @@
 				</div>
 				<br/>
 				
-						<div class="row">
+					<div class="row">
 							<table class="table table-bordered table-dark">
 							  <thead>
 							    <tr>
@@ -75,6 +75,11 @@
 								@endforeach
 							 </tbody>
 							</table>
+					</div>
+					<div class="row">
+							
+						{{ $list->links() }}
+								
 					</div>
 			</div>
 		</section>

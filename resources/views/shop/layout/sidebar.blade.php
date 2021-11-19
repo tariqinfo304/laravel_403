@@ -96,6 +96,7 @@
 												</li>
 												<li><a href="contact.php">Contact Us</a></li>
 												<li><a href="{{ URL('shop/product') }}">Product</a></li>
+												<li><a href="{{ URL('add_book') }}">Add Book</a></li>
 											</ul>
 									</div>
 								</div>
